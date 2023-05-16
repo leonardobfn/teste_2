@@ -1,0 +1,6 @@
+6 0.95 "(Intercept)_a" 2.5 3.2303 "Method 1" 84 "Model 1" 2.7792
+6 0.95 "sent_a" 0.1 0.1983 "Method 1" 84 "Model 1" 0.2648
+6 0.95 "cost_a" -0.1 -0.0721 "Method 1" 84 "Model 1" -0.0537
+6 0.95 "(Intercept)_delta" -3.5 -8.6656 "Method 1" 84 "Model 1" -5.4481
+6 0.95 "semester2_delta" -0.25 0.1399 "Method 1" 84 "Model 1" 0.4964
+6 0.95 "alpha" 0.95 0.5034 "Method 1" 84 "Model 1" 0.5

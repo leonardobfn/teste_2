@@ -1,0 +1,5 @@
+"real_values" "par_names"
+"1" 2 "(Intercept)_nu"
+"2" 0.01 "t_nu"
+"3" -3.50 "(Intercept)_delta"
+"4" -0.25 "semester2_delta"
