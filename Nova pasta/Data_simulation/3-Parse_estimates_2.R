@@ -24,6 +24,7 @@ require(extraDistr)
 wd = getwd()
 #Model 1--------
 MODEL = c(1, 2,3,4,5,6)
+MODEL = c(4,5,8)
 for (M in MODEL) {
 
   file.path = paste0(wd,
@@ -44,11 +45,11 @@ for (M in MODEL) {
     group_by(V8, V6, V7, V2, V3) %>%
     summarise(
       Par_real = mean(V4),
-      Mean = round(mean(V5), 3),
-      Median = round(median(V5), 3),
+      Mean = round(mean(V5), 10),
+      Median = round(median(V5), 10),
       #Interval = interval(V5,0.95,3),
-      RB = round((Par_real - Mean) / Par_real, 3),
-      MSE = round(mean(   (V5 - Par_real) ^ 2  ), 3),
+      RB = round((Par_real - Mean) / Par_real, 10),
+      MSE = round(mean(   (V5 - Par_real) ^ 2  ), 10),
       #Samples = length(V3)
     ) %>% data.frame()
 
@@ -79,7 +80,7 @@ colnames(results_statistics) = c(
 #write.csv(results_statistics,"Data_simulation/MC_estimates/results_statistics.csv")
 write.csv(results_statistics,"Data_simulation/MC_estimates/results_statistics.csv")
 
-
-
+write.xlsx(results_statistics,"Data_simulation/MC_estimates/results_statistics.xlsx")
+library(openxlsx)
 
 

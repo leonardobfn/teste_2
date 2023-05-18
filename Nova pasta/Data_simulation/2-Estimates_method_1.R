@@ -15,7 +15,7 @@ require(extraDistr)
 n. = c(144,84,168)
 #n. = c(144)
 logs = NULL
-MODEL = c(5,6)
+MODEL = c(8)
 MC = 3000
 cpus <- 10
 wd. = getwd()
@@ -47,6 +47,9 @@ for (M in MODEL) {
   }
   if (M == 6) {
     FORMULA <- RH ~ t | semester
+  }
+  if (M == 7|M==8) {
+    FORMULA <- RH ~ log(t) | semester
   }
   for (k in n.) {
     for (alpha. in alpha_value) {

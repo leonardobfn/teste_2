@@ -45,7 +45,7 @@ for (M in MODEL) {
   if (M == 5) {
     LAB = labels5
   }
-  if (M == 6) {
+  if (M == 6 | M==8) {
     LAB = labels6
   }
 
@@ -105,4 +105,4 @@ for (M in MODEL) {
   }
 }
 
-\cmidrule{3-5}
+

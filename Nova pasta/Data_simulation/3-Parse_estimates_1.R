@@ -1,5 +1,5 @@
 METHOD = c("Method_1","Method_2")
-MODEL = c(5,6)
+MODEL = c(8)
 MC = 3000
 n. = c(84,144,168)
 alpha_value <- c ("alpha35",
@@ -68,7 +68,7 @@ for (M in MODEL) {
 
 
 
-dados = readRDS("estimates_model_1.rds")
+dados = readRDS("Data_simulation/MC_estimates/mc_estimates_model_8.rds")
 
 require(dplyr)
 require(tidyr)

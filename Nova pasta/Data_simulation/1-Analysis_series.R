@@ -3,15 +3,15 @@ require(tidyverse)
 require(dplyr)
 alpha.values = c("alpha35", "alpha50", "alpha65", "alpha80" , "alpha95")
 #alpha.values = alpha.values[1]
-MODEL = c(4, 5, 6)
-id=300
+MODEL = c(4, 5, 8)
+id=1000
 #MODEL = MODEL[1]
 N = c(168)
 sc = .80
 width = 7 * sc
 height = 7 * sc
 y = NULL
-
+wd = getwd()
 for (M in MODEL) {
   for (n in N) {
     for (ALPHA in alpha.values) {

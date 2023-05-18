@@ -1,55 +1,55 @@
 
 
 
-# rm(list = ls())
-#
-# interval = function(x, conf, ROUND) {
-#   # conf = 0.95
-#   # ROUND = 3
-#   # x = rnorm(100)
-#   al = 1 - conf
-#   int = quantile(x, c(al / 2, 1 - (al / 2)))
-#   int2 = paste0("(",
-#                 round(int[1],ROUND),
-#                 ",",
-#                 round(int[2],ROUND),
-#                 ")")
-#   return(int2)
-# }
-#
-# #packages--------------
-# require(tidyr)
-# require(dplyr)
-# require(extraDistr)
-# wd = getwd()
-# #Model 1--------
-# MODEL = c(1, 2,3,4,5,6)
-# for (M in MODEL) {
-#
-#   file.path = paste0(wd,
-#                      "/Data_simulation/MC_estimates/mc_estimates_model_",
-#                      M,
-#                      ".rds")
-#   mc_estimates_model_1 <- readRDS(file.path)
-#   file.path.par = paste0(wd, "/Data_simulation/real_par_model_", M, ".txt")
-#   emv = read.table(file.path.par)
-#
-#   mc_estimates_model_1$V3  = factor(mc_estimates_model_1$V3,
-#                                     levels = c(emv$par_names, "alpha"))
-#
-#
-#   write.table(
-#     mc_estimates_model_1,
-#     "Data_simulation/MC_estimates/mc_estimates.txt",
-#     append = T,
-#     col.names = F,
-#     row.names = F,
-#   )
-#
-# }
+rm(list = ls())
 
-#colnames(mc) = c("mc","alpha","Parameter","Par_real","Estimates","Method","n","Model","start")
-#saveRDS(mc,"Data_simulation/MC_estimates/mc_estimates.rds")
+interval = function(x, conf, ROUND) {
+  # conf = 0.95
+  # ROUND = 3
+  # x = rnorm(100)
+  al = 1 - conf
+  int = quantile(x, c(al / 2, 1 - (al / 2)))
+  int2 = paste0("(",
+                round(int[1],ROUND),
+                ",",
+                round(int[2],ROUND),
+                ")")
+  return(int2)
+}
+
+#packages--------------
+require(tidyr)
+require(dplyr)
+require(extraDistr)
+wd = getwd()
+#Model 1--------
+MODEL = c(4,5,8)
+for (M in MODEL) {
+
+  file.path = paste0(wd,
+                     "/Data_simulation/MC_estimates/mc_estimates_model_",
+                     M,
+                     ".rds")
+  mc_estimates_model_1 <- readRDS(file.path)
+  file.path.par = paste0(wd, "/Data_simulation/real_par_model_", M, ".txt")
+  emv = read.table(file.path.par)
+
+  mc_estimates_model_1$V3  = factor(mc_estimates_model_1$V3,
+                                    levels = c(emv$par_names, "alpha"))
+
+
+  write.table(
+    mc_estimates_model_1,
+    "Data_simulation/MC_estimates/mc_estimates.txt",
+    append = T,
+    col.names = F,
+    row.names = F,
+  )
+
+}
+mc = read.table("Data_simulation/MC_estimates/mc_estimates.txt")
+colnames(mc) = c("mc","alpha","Parameter","Par_real","Estimates","Method","n","Model","start")
+saveRDS(mc,"Data_simulation/MC_estimates/mc_estimates.rds")
 
 
 rm(list = ls())
@@ -102,6 +102,7 @@ labels6 = c(
   expression(alpha)
 )
 models = c(1,2,3,4,5,6)
+models = c(8)
 wd = getwd()
 theme.all = theme_bw() + theme(axis.text.x = element_text(size=5,angle = 90),
                                axis.text.y = element_text(size=5),
@@ -120,7 +121,7 @@ for (M in models) {
   if (M == 5) {
     LAB = labels5
   }
-  if (M == 6) {
+  if (M == 6 | M == 8) {
     LAB = labels6
   }
 
